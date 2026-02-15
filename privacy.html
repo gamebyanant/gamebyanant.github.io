@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Swipe — Support</title>
+    <meta name="description"
+        content="Get help with Game Swipe. Find answers to common questions or contact our support team.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple: #8B5CF6;
+            --purple-dark: #7C3AED;
+            --teal: #14B8A6;
+            --bg: #0F0F1A;
+            --card: #1A1A2E;
+            --card-border: #2A2A3E;
+            --text: #E2E8F0;
+            --text-muted: #94A3B8;
+            --glow-purple: rgba(139, 92, 246, 0.15);
+            --glow-teal: rgba(20, 184, 166, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 0%, var(--glow-purple) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, var(--glow-teal) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--purple), var(--teal));
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.3);
+        }
+
+        header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        /* Section titles */
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title .icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .section-title .icon.purple {
+            background: var(--glow-purple);
+        }
+
+        .section-title .icon.teal {
+            background: var(--glow-teal);
+        }
+
+        /* FAQ Accordion */
+        .faq-item {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+
+        .faq-item.active {
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.1);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 600;
+            text-align: left;
+            padding: 18px 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            transition: color 0.2s;
+        }
+
+        .faq-question:hover {
+            color: var(--purple);
+        }
+
+        .faq-chevron {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-chevron {
+            transform: rotate(180deg);
+            color: var(--purple);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer-inner {
+            padding: 0 20px 18px;
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* Contact Card */
+        .contact-card {
+            background: linear-gradient(135deg, var(--card), #1E1E32);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .contact-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .contact-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 16px rgba(139, 92, 246, 0.3);
+        }
+
+        .email-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-muted);
+            font-size: 13px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        footer a {
+            color: var(--purple);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            header {
+                padding: 40px 0 24px;
+            }
+
+            header h1 {
+                font-size: 26px;
+            }
+
+            .section-title {
+                font-size: 19px;
+            }
+
+            .faq-question {
+                font-size: 14px;
+                padding: 16px;
+            }
+
+            .faq-answer-inner {
+                padding: 0 16px 16px;
+                font-size: 13px;
+            }
+
+            .contact-card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <div class="app-icon">🎮</div>
+            <h1>Game Swipe Support</h1>
+            <p>Find answers or get in touch — we're here to help.</p>
+        </header>
+
+        <div class="section-title">
+            <span class="icon purple"></span>
+            Frequently Asked Questions
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                What is Game Swipe?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Game Swipe is a collection of 300+ mini games in one app. Simply swipe up to discover a new game,
+                    play instantly, and keep swiping for endless entertainment. No searching through menus — just swipe
+                    and play!
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Is Game Swipe free to play?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Yes! Game Swipe is completely free to download and play. Free users can enjoy 15 minutes of
+                    continuous gameplay. After that, there's a short cooldown period before you can play again. Pro
+                    members enjoy unlimited play with no cooldowns.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Why am I temporarily blocked from playing?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    To encourage healthy gaming habits, free users have a 15-minute play session limit. After 15 minutes
+                    of continuous play, there's a 1-hour cooldown. You'll receive a notification when games are unlocked
+                    again. Upgrading to Pro removes this limit entirely.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                How do I save my favorite games?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    While playing any game, tap the bookmark icon to save it to your favorites. You can access all your
+                    saved games from the "Saved Games" section in your profile. This way, you can quickly replay the
+                    games you love most.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                What is the daily streak?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Your daily streak tracks how many consecutive days you've played Game Swipe. Open the app each day
+                    to increase your streak by 1. If you miss a day, your streak decreases by 1 instead of resetting
+                    completely — so don't worry about losing everything!
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Are my high scores saved?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Yes! Your high scores are automatically saved for every game you play. You can view your scores and
+                    stats on your profile dashboard. If you have an account, your scores are also synced so you won't
+                    lose them.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Does Game Swipe work offline?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Yes! All games are built into the app and can be played without an internet connection. An internet
+                    connection is only needed for account login, score syncing, and profile features.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                How do I turn off notifications?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    You can manage notifications in your device settings: go to Settings → Notifications → Game Swipe,
+                    and toggle them off. You can also adjust notification preferences within the app's Settings screen.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Can I play without creating an account?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Absolutely! You can play as a guest without signing up. A fun guest name is generated for you
+                    automatically. Creating an account lets you save your progress across devices and access additional
+                    features.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                How do I delete my account?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    You can delete your account directly within the App — go to your Profile and use the account
+                    deletion option in settings. This permanently removes your account and all associated data.
+                    Alternatively, you can email us at kanant164@gmail.com with the subject "Account Deletion Request"
+                    and we'll handle it within 7 business days.
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <span class="icon teal"></span>
+            Contact Us
+        </div>
+
+        <div class="contact-card">
+            <h3>Still need help?</h3>
+            <p>We'd love to hear from you. Whether it's a bug report, feature request, or any question — drop us an
+                email and we'll get back to you as soon as possible.</p>
+            <a href="mailto:kanant164@gmail.com?subject=Game%20Swipe%20Support" class="email-btn">
+                ✉️ kanant164@gmail.com
+            </a>
+        </div>
+
+        <footer>
+            <p>© 2026 Game Swipe. All rights reserved.</p>
+            <p style="margin-top: 8px;"><a href="index.html">Support</a> · <a href="privacy.html">Privacy Policy</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const wasActive = item.classList.contains('active');
+
+            // Close all
+            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+
+            // Toggle clicked
+            if (!wasActive) {
+                item.classList.add('active');
+            }
+        }
+    </script>
+</body>
+
+</html>

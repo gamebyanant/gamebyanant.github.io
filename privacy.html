@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Swipe — Support</title>
-    <meta name="description"
-        content="Get help with Game Swipe. Find answers to common questions or contact our support team.">
+    <title>Game Swipe — Privacy Policy</title>
+    <meta name="description" content="Privacy Policy for Game Swipe. Learn how we handle your data.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         *,
@@ -34,11 +33,10 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.7;
             min-height: 100vh;
         }
 
-        /* Animated background */
         body::before {
             content: '';
             position: fixed;
@@ -61,7 +59,6 @@
             z-index: 1;
         }
 
-        /* Header */
         header {
             text-align: center;
             padding: 60px 0 40px;
@@ -92,116 +89,76 @@
 
         header p {
             color: var(--text-muted);
-            font-size: 16px;
+            font-size: 14px;
         }
 
-        /* Section titles */
-        .section-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin: 40px 0 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title .icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-        }
-
-        .section-title .icon.purple {
-            background: var(--glow-purple);
-        }
-
-        .section-title .icon.teal {
-            background: var(--glow-teal);
-        }
-
-        /* FAQ Accordion */
-        .faq-item {
+        .section {
             background: var(--card);
             border: 1px solid var(--card-border);
             border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+
+        .section h2 {
+            font-size: 17px;
+            font-weight: 700;
             margin-bottom: 12px;
-            overflow: hidden;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .faq-item:hover {
-            border-color: rgba(139, 92, 246, 0.3);
-        }
-
-        .faq-item.active {
-            border-color: rgba(139, 92, 246, 0.4);
-            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.1);
-        }
-
-        .faq-question {
-            width: 100%;
-            background: none;
-            border: none;
-            color: var(--text);
-            font-family: inherit;
-            font-size: 15px;
-            font-weight: 600;
-            text-align: left;
-            padding: 18px 20px;
-            cursor: pointer;
+            color: #fff;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            transition: color 0.2s;
+            gap: 8px;
         }
 
-        .faq-question:hover {
-            color: var(--purple);
-        }
-
-        .faq-chevron {
-            width: 20px;
-            height: 20px;
-            flex-shrink: 0;
-            transition: transform 0.3s ease;
-            color: var(--text-muted);
-        }
-
-        .faq-item.active .faq-chevron {
-            transform: rotate(180deg);
-            color: var(--purple);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s ease, padding 0.35s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 300px;
-        }
-
-        .faq-answer-inner {
-            padding: 0 20px 18px;
+        .section p,
+        .section li {
             color: var(--text-muted);
             font-size: 14px;
             line-height: 1.7;
         }
 
-        /* Contact Card */
+        .section p+p {
+            margin-top: 10px;
+        }
+
+        .section ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .section ul li {
+            padding: 4px 0 4px 20px;
+            position: relative;
+        }
+
+        .section ul li::before {
+            content: '•';
+            color: var(--purple);
+            font-weight: bold;
+            position: absolute;
+            left: 4px;
+        }
+
+        .highlight-box {
+            background: rgba(139, 92, 246, 0.08);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 10px;
+            padding: 16px;
+            margin: 16px 0 0;
+        }
+
+        .highlight-box p {
+            color: var(--text) !important;
+            font-size: 13px !important;
+        }
+
         .contact-card {
             background: linear-gradient(135deg, var(--card), #1E1E32);
             border: 1px solid var(--card-border);
             border-radius: 16px;
             padding: 32px;
             text-align: center;
-            margin: 40px 0;
+            margin: 32px 0;
         }
 
         .contact-card h3 {
@@ -213,7 +170,7 @@
         .contact-card p {
             color: var(--text-muted);
             font-size: 14px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .email-btn {
@@ -236,7 +193,19 @@
             box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
         }
 
-        /* Footer */
+        .nav-link {
+            display: inline-block;
+            color: var(--purple);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+
         footer {
             text-align: center;
             padding: 40px 0;
@@ -250,7 +219,6 @@
             text-decoration: none;
         }
 
-        /* Responsive */
         @media (max-width: 480px) {
             header {
                 padding: 40px 0 24px;
@@ -260,22 +228,12 @@
                 font-size: 26px;
             }
 
-            .section-title {
-                font-size: 19px;
+            .section {
+                padding: 18px;
             }
 
-            .faq-question {
-                font-size: 14px;
-                padding: 16px;
-            }
-
-            .faq-answer-inner {
-                padding: 0 16px 16px;
-                font-size: 13px;
-            }
-
-            .contact-card {
-                padding: 24px;
+            .section h2 {
+                font-size: 16px;
             }
         }
     </style>
@@ -285,195 +243,132 @@
 
     <div class="container">
         <header>
-            <div class="app-icon">🎮</div>
-            <h1>Game Swipe Support</h1>
-            <p>Find answers or get in touch — we're here to help.</p>
+            <div class="app-icon">🔒</div>
+            <h1>Privacy Policy</h1>
+            <p>Last updated: February 16, 2026</p>
+            <br>
+            <a href="index.html" class="nav-link">← Back to Support</a>
         </header>
 
-        <div class="section-title">
-            <span class="icon purple"></span>
-            Frequently Asked Questions
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>Game Swipe ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains
+                how we collect, use, and safeguard your information when you use the Game Swipe mobile application ("the
+                App").</p>
+            <p>By using Game Swipe, you agree to the collection and use of information as described in this policy.</p>
         </div>
 
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                What is Game Swipe?
-                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9" />
-                </svg>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-inner">
-                    Game Swipe is a collection of 300+ mini games in one app. Simply swipe up to discover a new game,
-                    play instantly, and keep swiping for endless entertainment. No searching through menus — just swipe
-                    and play!
-                </div>
+        <div class="section">
+            <h2>Information We Collect</h2>
+
+            <p><strong>Information you provide:</strong></p>
+            <ul>
+                <li>Player name or display name (set during onboarding)</li>
+                <li>Email address and password (if you create an account)</li>
+                <li>Game category preferences</li>
+            </ul>
+
+            <p><strong>Information collected automatically:</strong></p>
+            <ul>
+                <li>Game high scores and total scores</li>
+                <li>Daily login streak data</li>
+                <li>App usage duration (for session management)</li>
+                <li>Sound and notification preferences</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p><strong>Most of your data is stored locally on your device</strong> using secure on-device
+                    storage. We only sync minimal data (like high scores) to our servers if you create an account.</p>
             </div>
         </div>
 
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                Is Game Swipe free to play?
-                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9" />
-                </svg>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-inner">
-                    Yes! Game Swipe is completely free to download and play. Free users can enjoy 15 minutes of
-                    continuous gameplay. After that, there's a short cooldown period before you can play again. Pro
-                    members enjoy unlimited play with no cooldowns.
-                </div>
-            </div>
+        <div class="section">
+            <h2>How We Use Your Information</h2>
+            <p>We use the information we collect to:</p>
+            <ul>
+                <li>Provide and maintain the App's functionality</li>
+                <li>Save your game progress, high scores, and preferences</li>
+                <li>Track your daily login streak</li>
+                <li>Manage gameplay session limits (free vs. Pro users)</li>
+                <li>Send you notifications about streaks and game reminders (if enabled)</li>
+                <li>Improve the App experience and fix bugs</li>
+            </ul>
         </div>
 
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                Why am I temporarily blocked from playing?
-                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9" />
-                </svg>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-inner">
-                    To encourage healthy gaming habits, free users have a 15-minute play session limit. After 15 minutes
-                    of continuous play, there's a 1-hour cooldown. You'll receive a notification when games are unlocked
-                    again. Upgrading to Pro removes this limit entirely.
-                </div>
-            </div>
+        <div class="section">
+            <h2>Data Storage & Security</h2>
+            <p>Your game data (scores, bookmarks, preferences) is primarily stored <strong>locally on your
+                    device</strong> using encrypted on-device storage. This data remains on your device and is not
+                accessible to us unless you create an account and opt into syncing.</p>
+            <p>If you create an account, minimal data (such as high scores and profile information) is transmitted
+                securely to our servers using HTTPS encryption.</p>
         </div>
 
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                How do I save my favorite games?
-                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9" />
-                </svg>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-inner">
-                    While playing any game, tap the bookmark icon to save it to your favorites. You can access all your
-                    saved games from the "Saved Games" section in your profile. This way, you can quickly replay the
-                    games you love most.
-                </div>
-            </div>
+        <div class="section">
+            <h2>Notifications</h2>
+            <p>Game Swipe may send local notifications to:</p>
+            <ul>
+                <li>Remind you to maintain your daily streak</li>
+                <li>Let you know when a gameplay cooldown has ended</li>
+                <li>Encourage you to return after periods of inactivity</li>
+            </ul>
+            <p>You can disable notifications at any time through your device's Settings or within the App's settings
+                screen. Notification permissions are requested during onboarding and are entirely optional.</p>
         </div>
 
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                What is the daily streak?
-                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9" />
-                </svg>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-inner">
-                    Your daily streak tracks how many consecutive days you've played Game Swipe. Open the app each day
-                    to increase your streak by 1. If you miss a day, your streak decreases by 1 instead of resetting
-                    completely — so don't worry about losing everything!
-                </div>
-            </div>
+        <div class="section">
+            <h2>Device Permissions</h2>
+            <p>The App may request the following permissions. All are optional and the App functions fully without them:
+            </p>
+            <ul>
+                <li><strong>Camera</strong> — For setting a profile photo</li>
+                <li><strong>Photo Library</strong> — For choosing a profile picture or saving screenshots</li>
+                <li><strong>Notifications</strong> — For streak reminders and game alerts</li>
+            </ul>
+            <p>We do not access your camera, photos, or any other device features without your explicit permission. You
+                can revoke these permissions at any time in your device settings.</p>
         </div>
 
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                Are my high scores saved?
-                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9" />
-                </svg>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-inner">
-                    Yes! Your high scores are automatically saved for every game you play. You can view your scores and
-                    stats on your profile dashboard. If you have an account, your scores are also synced so you won't
-                    lose them.
-                </div>
-            </div>
+        <div class="section">
+            <h2>Third-Party Services</h2>
+            <p>Game Swipe does not sell, trade, or rent your personal information to third parties.</p>
+
         </div>
 
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                Does Game Swipe work offline?
-                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9" />
-                </svg>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-inner">
-                    Yes! All games are built into the app and can be played without an internet connection. An internet
-                    connection is only needed for account login, score syncing, and profile features.
-                </div>
-            </div>
+        <div class="section">
+            <h2>Children's Privacy</h2>
+            <p> We do not knowingly collect personal information from
+                children under the age of 13. Account creation is optional, and the App can be fully enjoyed without
+                providing any personal information.</p>
+            <p>If you believe a child under 13 has provided us with personal information through account creation,
+                please contact us and we will promptly delete it.</p>
         </div>
 
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                How do I turn off notifications?
-                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9" />
-                </svg>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-inner">
-                    You can manage notifications in your device settings: go to Settings → Notifications → Game Swipe,
-                    and toggle them off. You can also adjust notification preferences within the app's Settings screen.
-                </div>
-            </div>
+        <div class="section">
+            <h2>Data Deletion</h2>
+            <p>You have the right to delete your data at any time:</p>
+            <ul>
+                <li><strong>Local data</strong> — Uninstalling the App removes all locally stored data (scores,
+                    preferences)</li>
+                <li><strong>Account data</strong> — You can delete your account directly within the App from your
+                    Profile settings. This will permanently remove your account and all associated data from our servers
+                </li>
+                <li><strong>Need help?</strong> — You can also email us at <a href="mailto:kanant164@gmail.com"
+                        style="color: var(--purple); text-decoration: none;">kanant164@gmail.com</a> with the subject
+                    "Account Deletion Request" and we will process it within 7 business days</li>
+            </ul>
         </div>
 
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                Can I play without creating an account?
-                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9" />
-                </svg>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-inner">
-                    Absolutely! You can play as a guest without signing up. A fun guest name is generated for you
-                    automatically. Creating an account lets you save your progress across devices and access additional
-                    features.
-                </div>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                How do I delete my account?
-                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9" />
-                </svg>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-inner">
-                    You can delete your account directly within the App — go to your Profile and use the account
-                    deletion option in settings. This permanently removes your account and all associated data.
-                    Alternatively, you can email us at kanant164@gmail.com with the subject "Account Deletion Request"
-                    and we'll handle it within 7 business days.
-                </div>
-            </div>
-        </div>
-
-        <div class="section-title">
-            <span class="icon teal"></span>
-            Contact Us
+        <div class="section">
+            <h2>Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an
+                updated "Last updated" date. We encourage you to review this page periodically for any changes.</p>
         </div>
 
         <div class="contact-card">
-            <h3>Still need help?</h3>
-            <p>We'd love to hear from you. Whether it's a bug report, feature request, or any question — drop us an
-                email and we'll get back to you as soon as possible.</p>
-            <a href="mailto:kanant164@gmail.com?subject=Game%20Swipe%20Support" class="email-btn">
+            <h3>Questions about your privacy?</h3>
+            <p>If you have any questions or concerns about this Privacy Policy, please contact us.</p>
+            <a href="mailto:kanant164@gmail.com?subject=Game%20Swipe%20Privacy%20Inquiry" class="email-btn">
                 ✉️ kanant164@gmail.com
             </a>
         </div>
@@ -484,20 +379,6 @@
         </footer>
     </div>
 
-    <script>
-        function toggleFaq(button) {
-            const item = button.parentElement;
-            const wasActive = item.classList.contains('active');
-
-            // Close all
-            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
-
-            // Toggle clicked
-            if (!wasActive) {
-                item.classList.add('active');
-            }
-        }
-    </script>
 </body>
 
 </html>
